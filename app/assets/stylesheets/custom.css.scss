@@ -14,3 +14,26 @@
 .text-white{
     color: white !important;
 }
+
+#messages{
+    height: 15em;
+    overflow: auto;
+}
+
+.input{
+    button{
+        display: none;
+    }
+}
+.text-center{
+    text-align: center;
+}
+
+
+
+.field_with_errors input[type="text"] {
+    width: 150% !important;
+}
+.field_with_errors input[type="password"] {
+    width: 150% !important;
+}

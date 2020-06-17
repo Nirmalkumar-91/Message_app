@@ -7,7 +7,7 @@
             <% if !logged_in? %>
                 Account <i class="dropdown icon"></i>
             <% else %>
-                <%= @current_user.username %> <i class="dropdown icon"></i>
+                <%= @current_user.username.capitalize unless @current_user.blank? %> <i class="dropdown icon"></i>
             <% end %>   
             <div class="menu">
                 <% if logged_in? %> 
@@ -17,8 +17,5 @@
                 <% end %>
                 
             </div>
-        </div>
-        <div class="item">
-            <div class="ui primary button">Sign Up</div>
         </div>
     </div>

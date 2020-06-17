@@ -1,0 +1,37 @@
+<%= render 'shared/errors', obj: @user %>
+<div class="ui hidden divider"></div>
+<h2 class="ui center aligned icon header">Welcome to Message App - a Test Chat App</h2>
+<h2 class="ui center aligned icon header">
+    <i class="circular thumbs up orange icon"></i>
+  Sign Up
+</h2>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui two column centered grid">
+    <div class="column">
+        
+        <%= form_with(model: @user, url: signup_path,class: "ui form", local: true) do |f| %>  
+            
+                <div class="inline fields">
+                    <div class="sixteen wide field">
+                        <%= f.label :username, class: "three wide field" %>
+                        <%= f.text_field :username, placeholder: "Enter User Name" %>
+                    </div>
+                </div>
+                <div class="ui hidden divider"></div>
+                <div class="inline fields">
+                    <div class="sixteen wide field">
+                        <%= f.label :password, class: "three wide field" %>
+                        <%= f.password_field :password, placeholder: "Enter password" %>
+                    </div>
+                </div>
+                <div class="ui hidden divider"></div>
+                <div class="text-center">
+                    <%= f.submit "Submit", class: "ui button orange" %>
+                    
+                </div>
+         
+        <% end %>
+    
+    </div>
+</div>
