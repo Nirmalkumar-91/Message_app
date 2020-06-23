@@ -34,11 +34,13 @@ submit_message = function() {
 
 $(document).on('turbolinks:load', function() { 
     $('.ui.dropdown').dropdown();
+    $('.ui.accordion').accordion();
     $('.message .close').on('click', function() {
         $(this).closest('.message').transition('fade')
     });
     submit_message();
     scroll_bottom();
+    
     
  })
  

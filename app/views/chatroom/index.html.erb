@@ -26,16 +26,34 @@
     <div class="four wide column">
         <div class="ui fluid raised card chatbox">
             <div class=" content">
-                <div class="ui inverted vertical menu">
-                    <a class="item">
-                        Home
-                    </a>
-                    <a class="item">
-                        Messages
-                    </a>
-                    <a class="item">
-                        Friends
-                    </a>
+                <div class="ui styled fluid accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Registered Users
+                    </div>
+                    
+                    <div class="content">
+                    <% @user.each do |user| %>
+                        <div class="ui list">
+                            <div class="item"><%= user.username %></div>
+                        </div>
+                    <% end %>
+                    </div>
+                    
+                    <div class="active title">
+                        <i class="dropdown icon"></i>
+                        Online Users
+                    </div>
+                    <div class="active content">
+                        <% @user.each do |user| %>
+                            <div class="ui list">
+                            <% if user.last_seen_at == true %>
+                                <%= user.username %>
+                            <% end %>
+                            </div>
+                        <% end %>
+                    </div>
+                    
                 </div>
             </div>
         </div>

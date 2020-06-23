@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:session][:username])
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
+            user = user.toggle!(:last_seen_at)
             flash[:sucess] = "You have sucessfuly logged in"
             redirect_to root_path
         else
@@ -15,8 +16,9 @@ class SessionsController < ApplicationController
             render 'new'
         end
     end
-    
+
     def destroy
+        current_user.toggle!(:last_seen_at)
         session[:user_id] = nil
         flash[:sucess] = "You successfully logged out"
         redirect_to root_path
